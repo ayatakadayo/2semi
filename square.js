@@ -43,7 +43,12 @@ function drawTiling(){
     background(color("white"));
     for (let vecArr of lattice){
 	for (let vec of vecArr){
-	    fill(color("lightgray"));
+	    if (round(vec.x/scalar)%2 == round(vec.y/scalar)%2){
+            fill(color("lightblue"));
+            }
+            else{
+            fill(color("white"));
+            }
 	    deformedSquare(vec.x,vec.y);
 	}
     }
@@ -60,11 +65,11 @@ function midPoint(p,q){
 }
 
 function deformedSquare(x,y){
-    fill("lightgray");
+    //fill("lightgray");
     let v = [];
     let cp = [];
 
- 
+    //追記
     let yidx = round(y/scalar);
     if (yidx%2==0){
         ySgn = +1;
